@@ -28,7 +28,8 @@ class Planner extends Component {
       ...getEmptySkillBonuses(skillData),
     };
 
-    const buildString = props.location.search.substring(1);
+    const bIndex = props.location.search.indexOf('b=');
+    const buildString = bIndex > -1 ? props.location.search.substring(bIndex + 2) : null;
     const buildState = buildStringToState(buildString, skillData.tree);
     if (buildState) {
       const [characterLevel, difficulty] = estimateCharacterLevelAndDifficulty(
@@ -111,7 +112,9 @@ class Planner extends Component {
 
   render() {
     const buildString = stateToBuildString(this.state, skillData.skillDetails)
-    history.push(`?${buildString}`);
+    // Add the Overwolf query param if it's there when we get there
+    const ow = this.props.location.search.search(/[?&]ow/) > -1 ? 'ow&' : '';
+    history.push(`?${ow}b=${buildString}`);
     return (
       <div className='plannerContainer'>
         <CharacterSelector

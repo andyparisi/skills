@@ -19,7 +19,7 @@ function ShareButton (props) {
         effect='solid'
         event='click'
         eventOff='mouseleave'
-        afterShow={() => navigator.clipboard.writeText(`https://www.purediablo.com/diablo-2/skillplanner/?${props.buildString}`)}
+        afterShow={() => navigator.clipboard.writeText(`https://www.purediablo.com/diablo-2/skillplanner/?b=${props.buildString}`)}
         delayHide={500}
         type='light'
         textColor='#404040'
