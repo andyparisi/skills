@@ -17,6 +17,7 @@ const Skill = (props) => {
     isCurrentSkill,
     isInvalid,
     isSynergy,
+    toggleTooltip
   } = props;
 
   function setLevel (lvl) {
@@ -42,8 +43,13 @@ const Skill = (props) => {
     }
     props.setSkillLevels({ ...skillLevels, ...requirementsAtOne, [skillName]: (lvl < 20) ? lvl + 1: 20});
   }
+
+  
   const setBonus = (b) => props.setSkillBonus(skillName, b);
-  const setAsCurrent = () => props.setCurrentSkill(skillName);
+  const setAsCurrent = () => {
+    toggleTooltip();
+    props.setCurrentSkill(skillName)
+  }
 
   return (
     <div className={`skillContainer row${row} column${column}`}>
@@ -60,6 +66,7 @@ const Skill = (props) => {
         incrementLevel={incrementLevel}
         setBonus={setBonus}
         setAsCurrent={setAsCurrent}
+        toggleTooltip={toggleTooltip}
       />
       <SkillForm
         lvl={lvl}
@@ -67,6 +74,7 @@ const Skill = (props) => {
         totalBonus={bonusMode ? 0 : totalBonus}
         setLevel={setLevel}
         setAsCurrent={setAsCurrent}
+        toggleTooltip={toggleTooltip}
       />
     </div>
   );
@@ -126,7 +134,9 @@ const SkillButton = (props) => {
         className={className}
         onClick={onClick}
         onMouseEnter={setAsCurrent}
+        onTouchStart={setAsCurrent}
         onContextMenu={onContextMenu}
+        onMouseLeave={() => props.toggleTooltip(false)}
       >
         {buttonText}
       </button>

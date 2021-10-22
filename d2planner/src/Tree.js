@@ -77,6 +77,7 @@ const Tree = (props) => {
           setSkillLevels={(skillLevels) => props.setSkillLevels(character, skillLevels)}
           setSkillBonus={setSkillBonus}
           setCurrentSkill={props.setCurrentSkill}
+          toggleTooltip={props.toggleTooltip}
       />
     )
   });

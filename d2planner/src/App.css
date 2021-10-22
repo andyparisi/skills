@@ -3,3 +3,9 @@
   padding: 10px;
   width: fit-content;
 }
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

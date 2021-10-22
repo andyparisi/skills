@@ -11,6 +11,7 @@ import DifficultySelector from './DifficultySelector';
 import Instructions from './Instructions';
 import Tooltip from './Tooltip';
 import Tree from './Tree';
+import Overlay from './Overlay';
 
 const  history = createBrowserHistory();
 
@@ -24,6 +25,7 @@ class Planner extends Component {
       difficulty: 'Normal',
       difficultyAuto: true,
       characterLevel: 1,
+      showTooltip: false,
       ...getEmptySkillLevels(skillData),
       ...getEmptySkillBonuses(skillData),
     };
@@ -82,7 +84,8 @@ class Planner extends Component {
     })
   };
   setSkillBonuses = (character, skillBonuses) => this.setState({[`${character}SkillBonuses`]: skillBonuses});
-  setCurrentSkill = (skillName) => this.setState({currentSkill: skillName});
+  setCurrentSkill = (skillName) => this.setState({currentSkill: skillName, showTooltip: true});
+  toggleTooltip = (value = true) => this.setState({ showTooltip: value });
   setDifficulty = (difficulty) => {
     const [characterLevel, newDifficulty] = estimateCharacterLevelAndDifficulty(
       this.state[`${this.state.character}SkillLevels`],
@@ -111,6 +114,7 @@ class Planner extends Component {
   };
 
   render() {
+    const { showTooltip } = this.state;
     const buildString = stateToBuildString(this.state, skillData.skillDetails)
     // Add the Overwolf query param if it's there when we get there
     const ow = this.props.location.search.search(/[?&]ow/) > -1 ? 'ow&' : '';
@@ -123,12 +127,16 @@ class Planner extends Component {
         />
         <hr></hr>
         <div className='plannerCoreContainer'>
-          <Tooltip
-            skill={skillData.skillDetails[this.state.currentSkill]}
-            skillLevels={this.state[`${this.state.character}SkillLevels`]}
-            skillBonuses={this.state[`${this.state.character}SkillBonuses`]}
-            difficulty={this.state.difficulty}
-          />
+          {showTooltip && (
+            <Overlay>
+              <Tooltip
+                skill={skillData.skillDetails[this.state.currentSkill]}
+                skillLevels={this.state[`${this.state.character}SkillLevels`]}
+                skillBonuses={this.state[`${this.state.character}SkillBonuses`]}
+                difficulty={this.state.difficulty}
+              />
+            </Overlay>
+          )}
           <div className='treeWithOptionsContainer'>
             <Instructions/>
             <Tree
@@ -144,6 +152,7 @@ class Planner extends Component {
               setSkillLevels={this.setSkillLevels}
               setSkillBonuses={this.setSkillBonuses}
               setCurrentSkill={this.setCurrentSkill}
+              toggleTooltip={this.toggleTooltip}
             />
             <div className='treeFooter'>
               <DifficultySelector
