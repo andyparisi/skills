@@ -49,7 +49,7 @@ const CurrentLevel = (props) => {
   const currentLevelItems = props.lines.map((line, index) => (<li key={index}>{line}</li>));
   return (
     <div className='currentLevelBlock'>
-      <h3 className='currentLevelHeader levelHeader'>{`Current Level: ${props.lvl}`}</h3>
+      <h3 className='currentLevelHeader levelHeader'>{`Current Skill Level: ${props.lvl}`}</h3>
       <ul className='desc'>{currentLevelItems}</ul>
     </div>
   );

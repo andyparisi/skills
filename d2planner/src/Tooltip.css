@@ -1,43 +1,26 @@
 .tooltipContainer {
-  background: rgba(0, 0, 0, 0.7);
-  width: 400px;
+  background: rgba(0, 0, 0, 0.8);
+  width: 420px;
   max-width: 100%;
   padding: 20px;
   text-align: center;
+  font-family: 'ExocetLight';
+  color: white;
 }
-.skillPreamble {
-  margin-bottom: 1em;
+
+.skillName {
+  color: white;
+  font-size: 20px;
+  font-family: 'ExocetLight';
 }
-.skillName, .skillLongName {
-  margin-top:  0px;
-  margin-bottom:  .2em;
+
+.skillLongName {
+  color: white;
+  font-size: 17px;
 }
-.levelHeader, .synergyHeader {
-  font-size: 14pt;
-  margin-top: .5em;
-  margin-bottom: .2em;
-}
-ul {
-  list-style-type: none;
-  padding: 2px;
-  margin-bottom:  0;
-}
-ul.dsc3 > li {
-  background: #E3EBF2;
-}
-li {
-  background: #F5F5F5;
-  margin: .5em;
-  padding-left:  .5em;
-  padding-right: .5em;
-  font-size:  11pt;
-}
-p.skillLongName {
-  width:  fit-content;
-  padding-right: .5em;
-  padding-left:  1em;
-  white-space: pre-wrap;
-  font-size:  11pt;
-  font-style:  italic;
-  background:  transparent;
+
+.currentLevelBlock h3 {
+  color: white;
+  font-size: 17px;
+  font-family: 'ExocetLight';
 }

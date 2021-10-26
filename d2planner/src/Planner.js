@@ -127,16 +127,14 @@ class Planner extends Component {
         />
         <hr></hr>
         <div className='plannerCoreContainer'>
-          {showTooltip && (
-            <Overlay>
-              <Tooltip
-                skill={skillData.skillDetails[this.state.currentSkill]}
-                skillLevels={this.state[`${this.state.character}SkillLevels`]}
-                skillBonuses={this.state[`${this.state.character}SkillBonuses`]}
-                difficulty={this.state.difficulty}
-              />
-            </Overlay>
-          )}
+          <Overlay visible={true || showTooltip}>
+            <Tooltip
+              skill={skillData.skillDetails[this.state.currentSkill]}
+              skillLevels={this.state[`${this.state.character}SkillLevels`]}
+              skillBonuses={this.state[`${this.state.character}SkillBonuses`]}
+              difficulty={this.state.difficulty}
+            />
+          </Overlay>
           <div className='treeWithOptionsContainer'>
             <Instructions/>
             <Tree

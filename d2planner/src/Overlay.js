@@ -3,8 +3,15 @@ import { createPortal } from 'react-dom';
 
 class Overlay extends Component {
   render() {
+    const { visible } = this.props;
     const targetEl = document.getElementById('overlay');
-    return targetEl == null ? null : createPortal(this.props.children, targetEl)
+    if (visible) {
+      targetEl.classList.add('visible');
+    }
+    else {
+      targetEl.classList.remove('visible');
+    }
+    return createPortal(this.props.children, targetEl)
   }
 }
 

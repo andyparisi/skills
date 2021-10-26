@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'ExocetHeavy';
+  src: url('./assets/fonts/ExocetHeavy.woff2') format('woff2');
+  src: url('./assets/fonts/ExocetHeavy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ExocetLight';
+  src: url('./assets/fonts/ExocetLight.woff2') format('woff2');
+  src: url('./assets/fonts/ExocetLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .planner {
   margin: auto;
   padding: 10px;
@@ -8,4 +24,10 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 999;
+  display: none;
+}
+
+#overlay.visible {
+  display: block;
 }
