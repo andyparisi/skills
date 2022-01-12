@@ -116,10 +116,44 @@ class Planner extends Component {
 
   handleMouseMove = (e) => {
     if (this.state.showTooltip) {
+      let top = e.pageY;
+      let left = e.pageX;
+      const marginBuffer = 20;
+      const rect = document.querySelector('.tooltipContainer').getBoundingClientRect();
+      let linkRect;
+
+      // Check if we have hovered over a tooltip link
+      if (e.target.classList.contains('skill')) {
+        linkRect = e.target.getBoundingClientRect();
+      }
+
+      if (linkRect == null) {
+        return;
+      }
+
+      // Re-position left side to stay on screen
+      if (left + rect.width > window.innerWidth) {
+        left = e.pageX - rect.width - marginBuffer * 2;
+
+        if (left < 0) {
+          left = -marginBuffer;
+        }
+      }
+
+      // Reposition top to stay on screen on short displays
+      if (top + rect.height > window.innerHeight) {
+        if (linkRect.top <= window.innerHeight / 2) {
+          top = top - linkRect.top - marginBuffer;
+        }
+        else {
+          top = top - rect.height - marginBuffer * 2;
+        }
+      }
+
       this.setState({
         tooltipPosition: {
-          top: e.clientY,
-          left: e.clientX
+          top: top + marginBuffer,
+          left: left + marginBuffer
         }
       });
     }
