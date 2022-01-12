@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 class Overlay extends Component {
   render() {
     const { visible } = this.props;
-    const targetEl = document.getElementById('overlay');
+    const targetEl = document.getElementById('skillTooltipOverlay');
     if (visible) {
       targetEl.classList.add('visible');
     }

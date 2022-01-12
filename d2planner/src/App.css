@@ -20,14 +20,15 @@
   width: fit-content;
 }
 
-#overlay {
+#skillTooltipOverlay {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 999;
   display: none;
+  pointer-events: none;
 }
 
-#overlay.visible {
+#skillTooltipOverlay.visible {
   display: block;
 }

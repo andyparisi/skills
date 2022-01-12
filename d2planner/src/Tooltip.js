@@ -23,7 +23,7 @@ const Tooltip = (props) => {
         : nextLevelLines
       }
       />
-      <Synergies lines={synergyLines}/>
+      <Synergies skill={skill} lines={synergyLines}/>
     </div>
   );
 };
@@ -67,9 +67,10 @@ const NextLevel = (props) => {
 
 const Synergies = (props) => {
   const synergyItems = props.lines.map((line, index) => (<li key={index}>{line}</li>));
-  return (
+  const skillName = props.skill['strName'];
+  return props.lines.length > 0 && (
     <div className='synergyBlock'>
-      {(props.lines.length > 0) ? <h3 className='synergyHeader'>Synergy Bonuses:</h3> : null}
+      <h3 className='synergyHeader'>{skillName} receives bonuses from:</h3>
       <ul className='dsc3'>{synergyItems}</ul>
     </div>
   );
