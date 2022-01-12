@@ -3,7 +3,7 @@ import {getTotalLevel} from './calculateSkillValue';
 import formatDesclines from './formatDesclines';
 
 const Tooltip = (props) => {
-  const {skill, skillLevels, skillBonuses, difficulty} = props;
+  const {skill, skillLevels, skillBonuses, difficulty, tooltipPosition} = props;
   if (!skill) {
     return <div className='tooltipContainer'></div>
   }
@@ -14,7 +14,7 @@ const Tooltip = (props) => {
   const nextLevelLines = formatDesclines('desc', skill, totalLevel + 1, skillLevels, skillBonuses, difficulty);
 
   return (
-    <div className='tooltipContainer'>
+    <div className='tooltipContainer' style={tooltipPosition}>
       <SkillPreamble lvl={totalLevel} {...props}/>
       <CurrentLevel lvl={totalLevel} lines={currentLevelLines}/>
       <NextLevel lines={

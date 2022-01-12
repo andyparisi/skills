@@ -48,7 +48,7 @@ const Skill = (props) => {
   const setBonus = (b) => props.setSkillBonus(skillName, b);
   const setAsCurrent = () => {
     toggleTooltip();
-    props.setCurrentSkill(skillName)
+    props.setCurrentSkill(skillName);
   }
 
   return (

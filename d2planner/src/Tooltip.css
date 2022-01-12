@@ -6,6 +6,9 @@
   font-family: 'ExocetLight';
   color: white;
   font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .tooltipContainer ul {

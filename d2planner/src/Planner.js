@@ -26,6 +26,7 @@ class Planner extends Component {
       difficultyAuto: true,
       characterLevel: 1,
       showTooltip: false,
+      tooltipPosition: {},
       ...getEmptySkillLevels(skillData),
       ...getEmptySkillBonuses(skillData),
     };
@@ -113,14 +114,25 @@ class Planner extends Component {
     });
   };
 
+  handleMouseMove = (e) => {
+    if (this.state.showTooltip) {
+      this.setState({
+        tooltipPosition: {
+          top: e.clientY,
+          left: e.clientX
+        }
+      });
+    }
+  }
+
   render() {
-    const { showTooltip } = this.state;
+    const { showTooltip, tooltipPosition } = this.state;
     const buildString = stateToBuildString(this.state, skillData.skillDetails)
     // Add the Overwolf query param if it's there when we get there
     const ow = this.props.location.search.search(/[?&]ow/) > -1 ? 'ow&' : '';
     history.push(`?${ow}b=${buildString}`);
     return (
-      <div className='plannerContainer'>
+      <div className='plannerContainer' onMouseMove={this.handleMouseMove}>
         <CharacterSelector
           character={this.state.character}
           setCharacter={this.setCharacter}
@@ -133,6 +145,7 @@ class Planner extends Component {
               skillLevels={this.state[`${this.state.character}SkillLevels`]}
               skillBonuses={this.state[`${this.state.character}SkillBonuses`]}
               difficulty={this.state.difficulty}
+              tooltipPosition={tooltipPosition}
             />
           </Overlay>
           <div className='treeWithOptionsContainer'>
@@ -151,6 +164,7 @@ class Planner extends Component {
               setSkillBonuses={this.setSkillBonuses}
               setCurrentSkill={this.setCurrentSkill}
               toggleTooltip={this.toggleTooltip}
+              tooltipPosition={tooltipPosition}
             />
             <div className='treeFooter'>
               <DifficultySelector
