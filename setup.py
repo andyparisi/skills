@@ -11,8 +11,8 @@ setup(
         'mpq_data_parser',
     ],
     install_requires=[
-        'numpy==1.20.1',
-        'pandas==1.2.4',
+        'numpy==1.22.1',
+        'pandas==1.4.0',
     ],
     zip_safe=False,
 )
