@@ -6,7 +6,7 @@ import {getTotalBonus} from './calculateSkillValue';
 import CharacterSpace from './CharacterSpace';
 import Skill from './Skill';
 import Tab from './Tab';
-import images from './assets/1.14D/game_images';
+import images from './assets/2.4/game_images';
 import mouseLeftImage from './assets/mouse-left-64x64.png';
 
 const Tree = (props) => {

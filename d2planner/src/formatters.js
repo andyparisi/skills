@@ -90,8 +90,8 @@ const formattersByDescline = {
   71: createFillTbWithCalcAFormatter('%d'),
   72: createCalcFormatter({template: (ta, tb, calcA, calcB) => (`+${calcA}/${calcB} ${ta}`)}),
   73: createCalcFormatter({template: (ta, tb, calcA, calcB) => (`${calcA}/${calcB} ${ta}`)}),
-  // 74: (skill, lvl, skillLevels, skillBonuses, difficulty, ta, tb, ca, cb) => (ta || ''),
-  // 75: (skill, lvl, skillLevels, skillBonuses, difficulty, ta, tb, ca, cb) => (ta || ''),
+  74: (skill, lvl, skillLevels, skillBonuses, difficulty, ta, tb, ca, cb) => (ta || ''),
+  75: (skill, lvl, skillLevels, skillBonuses, difficulty, ta, tb, ca, cb) => (ta || ''),
 };
 
 function formatManaCost (skill, lvl, skillLevels, skillBonuses, difficulty, ta, tb, ca, cb) {

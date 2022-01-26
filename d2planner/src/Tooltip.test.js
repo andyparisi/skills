@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import skillData from './assets/1.14D/game_data/d2_skill_data.json';
+import skillData from './assets/2.4/game_data/d2_skill_data.json';
 import { getAllCharacterSkillLevels } from './Planner';
 import Tooltip from './Tooltip';
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import './Planner.css';
-import skillData from './assets/1.14D/game_data/d2_skill_data.json';
+import skillData from './assets/2.4/game_data/d2_skill_data.json';
 import ShareButton from './ShareButton';
 import stateToBuildString, { buildStringToState } from './buildStrings'
 import CharacterSelector from './CharacterSelector';
