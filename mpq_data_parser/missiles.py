@@ -58,7 +58,7 @@ def _get_missile_details_for_row(row: pd.Series) -> dict:
         'eMinLev3': safe_int(row.MinELev3),
         'eMinLev4': safe_int(row.MinELev4),
         'eMinLev5': safe_int(row.MinELev5),
-        'eMax': safe_int(row.Emax),
+        'eMax': safe_int(row.EMax),
         'eMaxLev1': safe_int(row.MaxELev1),
         'eMaxLev2': safe_int(row.MaxELev2),
         'eMaxLev3': safe_int(row.MaxELev3),

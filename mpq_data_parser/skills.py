@@ -73,10 +73,10 @@ def get_skill_details(
             skill: _without_related(skill_details[skill]) for skill in related_skills
         }
 
-        related_missiles = _get_related_entities_for_calcs(row, r"miss\('((?:\w|\s)+)'\.\w+\)")
-        skill_details[skill_key]['relatedMissiles'] = {
-            missile: _without_related(missile_details[missile]) for missile in related_missiles
-        }
+        # related_missiles = _get_related_entities_for_calcs(row, r"miss\('((?:\w|\s)+)'\.\w+\)")
+        # skill_details[skill_key]['relatedMissiles'] = {
+        #     missile: _without_related(missile_details[missile]) for missile in related_missiles
+        # }
 
         skill_details[skill_key] = {k: v for k, v in skill_details[skill_key].items() if v or v == 0}
 
@@ -158,7 +158,6 @@ def _get_skill_details_for_row(row: pd.Series, missile_details: dict, monster_de
         'skillColumn': safe_int(row.SkillColumn),
         'reqLevel': safe_int(row.reqlevel),
         'reqSkills': _get_immediate_required_skills_for_row(row),
-        'strMana': row['str mana'],
         'mana': safe_int(row['mana']),
         'lvlMana': safe_int(row['lvlmana']),
         'minMana': safe_int(row['minmana']),
@@ -302,7 +301,7 @@ def get_character_skills(
 
 
 def _get_string_mapped_columns() -> list[str]:
-    string_mapped_columns = ['str name', 'str long', 'str alt', 'str mana']
+    string_mapped_columns = ['str name', 'str long', 'str alt', 'mana']
     for col_root, line_limit in {'desctext': N_DESC_COLS, 'dsc2text': N_DSC2_COLS, 'dsc3text': N_DSC3_COLS}.items():
         for a_b in 'ab':
             for i in range(1, line_limit + 1):

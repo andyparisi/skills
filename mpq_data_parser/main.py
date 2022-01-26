@@ -15,10 +15,10 @@ RELATED_NON_CHARSKILLS = ['mon death sentry']
 STRING_FILE = MODULE_DIR / 'data/string.csv'
 EXPANSION_STRING_FILE = MODULE_DIR / 'data/expansionstring.csv'
 PATCH_STRING_FILE = MODULE_DIR / 'data/patchstring.csv'
-ELEM_TYPES_FILE = MODULE_DIR / 'data/ElemTypes.txt'
+ELEM_TYPES_FILE = MODULE_DIR / 'data/elemtypes.txt'
 MON_STATS_FILE = MODULE_DIR / 'data/monstats.txt'
-MON_LVL_FILE = MODULE_DIR / 'data/MonLvl.txt'
-MISSILES_FILE = MODULE_DIR / 'data/Missiles.txt'
+MON_LVL_FILE = MODULE_DIR / 'data/monlvl.txt'
+MISSILES_FILE = MODULE_DIR / 'data/missiles.txt'
 SKILLS_FILE = MODULE_DIR / 'data/skills.txt'
 SKILL_DESC_FILE = MODULE_DIR / 'data/skilldesc.txt'
 

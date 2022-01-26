@@ -3,7 +3,7 @@ function stateToBuildString (plannerState, skillDetails) {
   const compressedBonuses = compressSkillNames(plannerState[`${plannerState.character}SkillBonuses`], skillDetails);
   const buildData = {
     v: 1,  // build version
-    p: '1.14D', // patch/mod version
+    p: '2.4', // patch/mod version
     c: plannerState.character,  // character
     s: compressedSkills,  // skills
     b: compressedBonuses,  // bonuses
